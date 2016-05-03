@@ -1,0 +1,4 @@
+.idea
+.vagrant
+modules/**/*.*
+!modules/pagekit*.zip
