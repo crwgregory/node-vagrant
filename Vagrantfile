@@ -7,6 +7,11 @@ Vagrant.configure("2") do |config|
 
     config.vm.provision :shell, path: "bootstrap.sh"
 
-    config.vm.synced_folder "./modules", "/vagrant/node_modules", { :mount_options => ['dmode=777','fmode=777'] }
+    # Un-comment to sync a folder
+    # config.vm.synced_folder "./modules", "/vagrant/node_modules", { :mount_options => ['dmode=777','fmode=777'] }
+
+    config.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--memory", 2048]
+    end
 
 end
